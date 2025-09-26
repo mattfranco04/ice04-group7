@@ -6,10 +6,21 @@ const path = require('path');
 app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "ejs")
 
-app.get('/', (req, res) => {
-  res.render("index")
-})
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "jeronimo", "index.html"));
+});
+
+app.get("/franco", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "matthew", "index.html"));
+});
+
+app.get("/nemeti", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "nemeti", "index.html"));
+});
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+  console.log(`Server running at http://localhost:${port}`);
+  console.log(`Three.js: http://localhost:${port}/jeronimo/`);
+  console.log(`D3:  http://localhost:${port}/franco/`);
+  console.log(`Tone.js: https://localhost:${port}/nemeti`);
+});
