@@ -1,10 +1,10 @@
-const express = require("express");
-const path = require("path");
+const express = require('express')
+const app = express()
+const port = 3000
+const path = require('path');
 
-const app = express();
-const port = 3000;
-
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
+app.set("view engine", "ejs")
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "jeronimo", "index.html"));
@@ -12,6 +12,10 @@ app.get("/", (req, res) => {
 
 app.get("/franco", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "matthew", "index.html"));
+});
+
+app.get("/nemeti", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "nemeti", "index.html"));
 });
 
 app.listen(port, () => {
