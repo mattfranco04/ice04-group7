@@ -18,6 +18,11 @@
   },
   "homepage": "https://github.com/mattfranco04/ice04-group7#readme",
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "three": "^0.180.0"
+  },
+  "devDependencies": {
+    "serve": "^14.2.5",
+    "vite": "^7.1.7"
   }
 }
